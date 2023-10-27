@@ -52,5 +52,7 @@ function startQuiz() {
 }
 
 function showQuestion() {
-  
+  let currentQuestion = questions[currentQuestionIndex];
+  let questionNo = currentQuestionIndex + 1;
+  questionElement.innerHTML + ". " + currentQuestion.question;
 }
