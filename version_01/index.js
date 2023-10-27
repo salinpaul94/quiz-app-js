@@ -63,4 +63,4 @@ function showQuestion() {
   });
 }
 
-startQuiz();
+window.addEventListener("DOMContentLoaded", startQuiz());
