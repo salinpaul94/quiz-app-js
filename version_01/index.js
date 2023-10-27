@@ -23,7 +23,7 @@ const questions = [
       { text: "Mumbai", correct: true },
       { text: "Kochi", correct: false },
       { text: "Bangalore", correct: false },
-      { text: "Goa", correct: true }
+      { text: "Goa", correct: false }
     ]
   },
   {
@@ -87,11 +87,35 @@ function selectAnswer(e) {
   nextButton.style.display = "block";
 }
 
+function showScore() {
+  resetState();
+  questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+  nextButton.innerHTML = "Play Again";
+  nextButton.style.display = "block";
+}
+
 function resetState() {
   nextButton.style.display = "none";
   while (answerButtons.firstChild) {
     answerButtons.removeChild(answerButtons.firstChild)
   }
 }
+
+function handleNextButton() {
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions.length) {
+    showQuestion();
+  } else {
+    showScore();
+  }
+}
+
+nextButton.addEventListener("click", () => {
+  if (currentQuestionIndex < questions.length) {
+    handleNextButton();
+  } else {
+    startQuiz();
+  }
+});
 
 window.addEventListener("DOMContentLoaded", startQuiz());
