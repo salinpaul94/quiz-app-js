@@ -49,3 +49,16 @@ body {
   background: #02ff34;
   color: #000000;
 }
+#next-btn{
+  background: #001e4d;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  width: 150px;
+  border: none;
+  padding: 10px;
+  margin: 20px auto 0;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+}
