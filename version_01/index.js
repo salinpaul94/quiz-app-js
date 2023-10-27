@@ -5,7 +5,7 @@ const questions = [
       { text: "Shark", correct: false },
       { text: "Blue Whale", correct: true },
       { text: "Elephant", correct: false },
-      { text: "Giraffe", correct: true }
+      { text: "Giraffe", correct: false }
     ]
   },
   {
@@ -77,6 +77,13 @@ function selectAnswer(e) {
   } else {
     selectBtn.classList.add("incorrect");
   }
+  Array.from(answerButtons.children).forEach(button => {
+    if (button.dataset.correct === "true") {
+      button.classList.add("correct");
+    }
+    button.disabled = true;
+  });
+  nextButton.style.display = "block";
 }
 
 function resetState() {
